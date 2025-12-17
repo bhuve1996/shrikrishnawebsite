@@ -27,7 +27,8 @@ export function Logo({ variant = 'default', size = 'md', className }: LogoProps)
         height={height}
         className={cn(
           'transition-transform duration-300 group-hover:scale-105',
-          variant === 'light' && 'brightness-0 invert'
+          // Add drop shadow for visibility on dark backgrounds
+          variant === 'light' && 'drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]'
         )}
         priority
       />
