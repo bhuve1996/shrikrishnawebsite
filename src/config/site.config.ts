@@ -203,6 +203,7 @@ export const galleryContent = {
 // Services page content
 export const servicesPageContent = {
   badge: 'Professional Services',
+  heroImage: '/images/gallery/photo_2.jpg',
   methodologySection: {
     title: 'Our Work Methodology',
     subtitle: 'Professional, systematic approach to every project',
