@@ -57,8 +57,8 @@ export function Header() {
                       ? 'text-accent-500'
                       : 'hover:text-accent-500 text-neutral-700'
                     : pathname === item.href
-                      ? 'text-white'
-                      : 'text-white/90 hover:text-white'
+                      ? 'text-accent-400'
+                      : 'hover:text-accent-400 text-white'
                 )}
               >
                 {item.name}
