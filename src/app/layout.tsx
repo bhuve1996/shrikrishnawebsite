@@ -79,12 +79,8 @@ export const metadata: Metadata = {
     canonical: siteConfig.url,
   },
   icons: {
-    icon: [
-      { url: '/Shree_logo.png', type: 'image/png', sizes: '32x32' },
-      { url: '/Shree_logo.png', type: 'image/png', sizes: '192x192' },
-    ],
-    apple: [{ url: '/Shree_logo.png', sizes: '180x180', type: 'image/png' }],
-    shortcut: '/Shree_logo.png',
+    icon: '/icon.png',
+    apple: '/apple-icon.png',
   },
   manifest: '/manifest.json',
   category: 'business',
@@ -105,11 +101,7 @@ export default function RootLayout({
   return (
     <html lang={siteConfig.language} className={`${dmSans.variable} ${outfit.variable}`}>
       <head>
-        {/* Favicon links for maximum compatibility */}
-        <link rel="icon" href="/Shree_logo.png" type="image/png" />
-        <link rel="icon" href="/Shree_logo.png" type="image/png" sizes="32x32" />
-        <link rel="icon" href="/Shree_logo.png" type="image/png" sizes="192x192" />
-        <link rel="apple-touch-icon" href="/Shree_logo.png" />
+        {/* Manifest for PWA */}
         <link rel="manifest" href="/manifest.json" />
 
         {/* Preconnect for performance */}
