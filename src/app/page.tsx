@@ -3,6 +3,7 @@ import {
   Hero,
   ServicesOverview,
   WhyChooseUs,
+  WorkShowcase,
   Process,
   ServiceAreas,
   Testimonials,
@@ -20,6 +21,7 @@ export default function HomePage() {
     <>
       <Hero />
       <ServicesOverview />
+      <WorkShowcase />
       <WhyChooseUs />
       <Process />
       <ServiceAreas />

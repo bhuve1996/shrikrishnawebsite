@@ -168,3 +168,60 @@ export const galleryContent = {
     { src: '/images/gallery/photo_11.jpg', alt: 'Dismantling project', category: 'Dismantling' },
   ],
 };
+
+// Project showcase slider content (homepage)
+export const projectShowcase = {
+  title: 'Our Recent Projects',
+  subtitle: 'Real work from our satisfied customers across Tricity',
+  autoPlayInterval: 4000, // milliseconds
+  slides: [
+    {
+      src: '/images/gallery/photo_1.jpg',
+      title: 'Commercial Core Cutting',
+      description: 'Precision core cutting for fire safety installations',
+      category: 'Core Cutting',
+    },
+    {
+      src: '/images/gallery/photo_2.jpg',
+      title: 'Industrial Drilling Project',
+      description: 'Heavy-duty core drilling at industrial facility',
+      category: 'Core Cutting',
+    },
+    {
+      src: '/images/gallery/photo_3.jpg',
+      title: 'Residential Installation',
+      description: 'Clean AC and chimney hole cutting for apartments',
+      category: 'Chimney Cutting',
+    },
+    {
+      src: '/images/gallery/photo_4.jpg',
+      title: 'Structural Rebaring',
+      description: 'Professional rebaring for building extensions',
+      category: 'Rebaring',
+    },
+    {
+      src: '/images/gallery/photo_5.jpg',
+      title: 'Factory Floor Work',
+      description: 'Core cutting in industrial factory with safety equipment',
+      category: 'Industrial',
+    },
+    {
+      src: '/images/gallery/photo_6.jpg',
+      title: 'Drainage Installation',
+      description: 'Large diameter cutting for plumbing work',
+      category: 'Core Cutting',
+    },
+    {
+      src: '/images/gallery/photo_7.jpg',
+      title: 'MEP Installations',
+      description: 'Core cutting for mechanical and electrical passages',
+      category: 'Core Cutting',
+    },
+    {
+      src: '/images/gallery/photo_8.jpg',
+      title: 'Commercial Building',
+      description: 'Multi-floor core cutting for utilities',
+      category: 'Commercial',
+    },
+  ],
+};
