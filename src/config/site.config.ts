@@ -97,7 +97,12 @@ export const heroContent = {
   badge: 'Trusted by 70+ Customers',
   title: 'Professional Core Cutting & Rebaring Services',
   subtitle: `Expert RCC core cutting, chemical rebaring, and concrete drilling services in Kharar, Mohali & Tricity region. ${businessInfo.yearsInBusiness}+ years of experience.`,
-  backgroundImage: '/images/listing-main.png',
+  backgroundImage: '/images/gallery/photo_5.jpg',
+  highlights: [
+    `${businessInfo.rating} ★ Rating`,
+    `${businessInfo.reviewCount}+ Happy Customers`,
+    'Free Estimates',
+  ],
 };
 
 // Statistics to display
@@ -123,13 +128,20 @@ export const footerContent = {
 
 // About page content
 export const aboutContent = {
+  badge: 'About Us',
   title: 'About Shri Krishna Core Cutting',
   subtitle: 'Your Trusted Partner for Construction Drilling Services',
+  heroImage: '/images/gallery/photo_9.jpg',
+  storyTitle: 'Our Story',
   description: `Founded in ${businessInfo.foundedYear}, Shri Krishna Core Cutting and Rebaring has grown to become one of the most trusted names in professional core cutting and rebaring services in the Tricity region. With over ${businessInfo.projectsCompleted}+ completed projects and ${businessInfo.reviewCount}+ satisfied customers, we take pride in delivering quality workmanship on every job.`,
   mission:
     'To provide the highest quality core cutting and rebaring services with precision, safety, and reliability at competitive prices.',
   vision:
     'To be the most trusted and preferred core cutting contractor in Punjab and Northern India.',
+  valuesSection: {
+    title: 'Our Values',
+    subtitle: 'The principles that guide everything we do',
+  },
   values: [
     {
       title: 'Quality First',
@@ -148,12 +160,31 @@ export const aboutContent = {
       description: 'Honest pricing, transparent processes, and reliable service.',
     },
   ],
+  workShowcase: {
+    title: 'Our Work in Action',
+    subtitle: 'See our team delivering quality results on real projects',
+    images: [1, 2, 3, 4, 6, 7, 8, 9], // photo numbers to show
+  },
+  journeySection: {
+    title: 'Our Journey',
+    subtitle: 'Key milestones in our growth story',
+  },
+  areasSection: {
+    title: 'Where We Work',
+    subtitle: 'Serving the Tricity region and beyond',
+  },
+  storyImages: [
+    { src: '/images/gallery/photo_1.jpg', alt: 'Core cutting work' },
+    { src: '/images/gallery/photo_5.jpg', alt: 'Industrial drilling' },
+  ],
 };
 
 // Gallery page content
 export const galleryContent = {
+  badge: 'Our Work',
   title: 'Our Work Gallery',
   subtitle: 'See the quality of our completed projects',
+  emptyMessage: 'No projects found in this category.',
   images: [
     { src: '/images/gallery/photo_1.jpg', alt: 'Core cutting project', category: 'Core Cutting' },
     { src: '/images/gallery/photo_2.jpg', alt: 'Rebaring work', category: 'Rebaring' },
@@ -167,6 +198,32 @@ export const galleryContent = {
     { src: '/images/gallery/photo_10.jpg', alt: 'Industrial work', category: 'Industrial' },
     { src: '/images/gallery/photo_11.jpg', alt: 'Dismantling project', category: 'Dismantling' },
   ],
+};
+
+// Services page content
+export const servicesPageContent = {
+  badge: 'Professional Services',
+  methodologySection: {
+    title: 'Our Work Methodology',
+    subtitle: 'Professional, systematic approach to every project',
+  },
+  industriesSection: {
+    title: 'Industries We Serve',
+    subtitle: 'Trusted by businesses across multiple sectors',
+  },
+  complianceSection: {
+    title: 'Fully Compliant Business',
+    description:
+      'We are a GST registered company with proper billing and documentation for all projects.',
+  },
+};
+
+// Service areas section content
+export const serviceAreasSection = {
+  title: 'Areas We Serve',
+  subtitle: 'Professional core cutting and rebaring services across the Tricity region',
+  notInListText: 'Not in the list? Contact us to check if we serve your area.',
+  ctaText: 'Contact Us for Your Area',
 };
 
 // Project showcase slider content (homepage)

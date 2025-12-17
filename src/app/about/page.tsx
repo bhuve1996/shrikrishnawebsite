@@ -41,7 +41,7 @@ export default function AboutPage() {
       <section className="from-primary-500 via-primary-600 to-primary-700 relative overflow-hidden bg-gradient-to-br pt-40 pb-20">
         {/* Background image */}
         <div className="absolute inset-0 opacity-20">
-          <Image src="/images/gallery/photo_9.jpg" alt="Our work" fill className="object-cover" />
+          <Image src={aboutContent.heroImage} alt="Our work" fill className="object-cover" />
         </div>
         <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -50,7 +50,7 @@ export default function AboutPage() {
             className="max-w-3xl"
           >
             <Badge variant="secondary" className="mb-4">
-              About Us
+              {aboutContent.badge}
             </Badge>
             <h1 className="mb-6 text-4xl font-bold text-white sm:text-5xl">{aboutContent.title}</h1>
             <p className="text-xl text-white/80">{aboutContent.subtitle}</p>
@@ -66,7 +66,7 @@ export default function AboutPage() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="mb-6 text-3xl font-bold text-neutral-900">Our Story</h2>
+            <h2 className="mb-6 text-3xl font-bold text-neutral-900">{aboutContent.storyTitle}</h2>
             <div className="space-y-4 text-neutral-600">
               <p>{aboutContent.description}</p>
               <p>
@@ -86,22 +86,14 @@ export default function AboutPage() {
           >
             {/* Work Images */}
             <div className="grid grid-cols-2 gap-4">
-              <div className="relative aspect-square overflow-hidden rounded-xl shadow-lg">
-                <Image
-                  src="/images/gallery/photo_1.jpg"
-                  alt="Core cutting work"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <div className="relative aspect-square overflow-hidden rounded-xl shadow-lg">
-                <Image
-                  src="/images/gallery/photo_5.jpg"
-                  alt="Industrial drilling"
-                  fill
-                  className="object-cover"
-                />
-              </div>
+              {aboutContent.storyImages.map((img, index) => (
+                <div
+                  key={index}
+                  className="relative aspect-square overflow-hidden rounded-xl shadow-lg"
+                >
+                  <Image src={img.src} alt={img.alt} fill className="object-cover" />
+                </div>
+              ))}
             </div>
 
             {/* Stats Card */}
@@ -128,7 +120,10 @@ export default function AboutPage() {
 
       {/* Values Section */}
       <Section background="light" padding="xl">
-        <SectionHeader title="Our Values" subtitle="The principles that guide everything we do" />
+        <SectionHeader
+          title={aboutContent.valuesSection.title}
+          subtitle={aboutContent.valuesSection.subtitle}
+        />
 
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
           {values.map((value, index) => {
@@ -157,11 +152,11 @@ export default function AboutPage() {
       {/* Work Showcase */}
       <Section background="white" padding="xl">
         <SectionHeader
-          title="Our Work in Action"
-          subtitle="See our team delivering quality results on real projects"
+          title={aboutContent.workShowcase.title}
+          subtitle={aboutContent.workShowcase.subtitle}
         />
         <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
-          {[1, 2, 3, 4, 6, 7, 8, 9].map((num) => (
+          {aboutContent.workShowcase.images.map((num) => (
             <motion.div
               key={num}
               initial={{ opacity: 0, scale: 0.9 }}
@@ -183,7 +178,10 @@ export default function AboutPage() {
 
       {/* Timeline Section */}
       <Section background="light" padding="xl">
-        <SectionHeader title="Our Journey" subtitle="Key milestones in our growth story" />
+        <SectionHeader
+          title={aboutContent.journeySection.title}
+          subtitle={aboutContent.journeySection.subtitle}
+        />
 
         <div className="mx-auto max-w-2xl">
           {milestones.map((milestone, index) => (
@@ -213,7 +211,10 @@ export default function AboutPage() {
 
       {/* Service Areas */}
       <Section background="white" padding="xl">
-        <SectionHeader title="Where We Work" subtitle="Serving the Tricity region and beyond" />
+        <SectionHeader
+          title={aboutContent.areasSection.title}
+          subtitle={aboutContent.areasSection.subtitle}
+        />
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}

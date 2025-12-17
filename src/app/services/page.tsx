@@ -28,7 +28,7 @@ import {
   workMethodology,
   businessCompliance,
 } from '@/config/services.config';
-import { socialLinks, businessInfo } from '@/config/site.config';
+import { socialLinks, businessInfo, servicesPageContent } from '@/config/site.config';
 import { pageSEO } from '@/config/seo.config';
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
@@ -53,7 +53,7 @@ export default function ServicesPage() {
             className="max-w-3xl"
           >
             <Badge variant="secondary" className="mb-4">
-              Professional Services
+              {servicesPageContent.badge}
             </Badge>
             <h1 className="mb-6 text-4xl font-bold text-white sm:text-5xl">
               {pageSEO.services.title}
@@ -282,8 +282,8 @@ export default function ServicesPage() {
       {/* Work Methodology */}
       <Section background="light" padding="xl">
         <SectionHeader
-          title="Our Work Methodology"
-          subtitle="Professional, systematic approach to every project"
+          title={servicesPageContent.methodologySection.title}
+          subtitle={servicesPageContent.methodologySection.subtitle}
         />
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {workMethodology.map((item, index) => (
@@ -313,8 +313,8 @@ export default function ServicesPage() {
       {/* Industries Served */}
       <Section background="white" padding="xl">
         <SectionHeader
-          title="Industries We Serve"
-          subtitle="Trusted by businesses across multiple sectors"
+          title={servicesPageContent.industriesSection.title}
+          subtitle={servicesPageContent.industriesSection.subtitle}
         />
         <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-5">
           {industriesServed.map((industry, index) => (
@@ -342,10 +342,11 @@ export default function ServicesPage() {
                 <Shield className="h-8 w-8 text-green-600" />
               </div>
             </div>
-            <h3 className="mb-2 text-xl font-bold text-neutral-900">Fully Compliant Business</h3>
+            <h3 className="mb-2 text-xl font-bold text-neutral-900">
+              {servicesPageContent.complianceSection.title}
+            </h3>
             <p className="mb-6 text-neutral-600">
-              We are a GST registered company with proper billing and documentation for all
-              projects.
+              {servicesPageContent.complianceSection.description}
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <div className="flex items-center gap-2 rounded-lg bg-neutral-50 px-4 py-2">

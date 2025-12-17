@@ -4,15 +4,13 @@ import { motion } from 'framer-motion';
 import { MapPin, ArrowRight } from 'lucide-react';
 import { Section, SectionHeader, Button } from '@/components/ui';
 import { serviceAreas } from '@/config/services.config';
+import { serviceAreasSection } from '@/config/site.config';
 import Link from 'next/link';
 
 export function ServiceAreas() {
   return (
     <Section id="areas" background="light" padding="lg">
-      <SectionHeader
-        title="Areas We Serve"
-        subtitle="Professional core cutting and rebaring services across the Tricity region"
-      />
+      <SectionHeader title={serviceAreasSection.title} subtitle={serviceAreasSection.subtitle} />
 
       {/* Areas Grid */}
       <motion.div
@@ -37,13 +35,13 @@ export function ServiceAreas() {
       </motion.div>
 
       <p className="mb-6 text-center text-sm text-neutral-500">
-        Not in the list? Contact us to check if we serve your area.
+        {serviceAreasSection.notInListText}
       </p>
 
       <div className="text-center">
         <Link href="/contact">
           <Button variant="primary" rightIcon={<ArrowRight className="h-5 w-5" />}>
-            Contact Us for Your Area
+            {serviceAreasSection.ctaText}
           </Button>
         </Link>
       </div>

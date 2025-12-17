@@ -60,7 +60,7 @@ export default function GalleryPage() {
             className="max-w-3xl"
           >
             <Badge variant="secondary" className="mb-4">
-              Our Work
+              {galleryContent.badge}
             </Badge>
             <h1 className="mb-6 text-4xl font-bold text-white sm:text-5xl">
               {galleryContent.title}
@@ -131,7 +131,7 @@ export default function GalleryPage() {
         {/* Empty state */}
         {filteredItems.length === 0 && (
           <div className="py-12 text-center">
-            <p className="text-neutral-500">No projects found in this category.</p>
+            <p className="text-neutral-500">{galleryContent.emptyMessage}</p>
           </div>
         )}
       </Section>

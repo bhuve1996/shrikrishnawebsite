@@ -8,18 +8,12 @@ import { businessInfo, socialLinks, heroContent, stats, ctaText } from '@/config
 import { serviceAreas } from '@/config/services.config';
 
 export function Hero() {
-  const highlights = [
-    `${businessInfo.rating} ★ Rating`,
-    `${businessInfo.reviewCount}+ Happy Customers`,
-    'Free Estimates',
-  ];
-
   return (
     <section className="relative flex min-h-screen items-center overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0">
         <Image
-          src="/images/gallery/photo_5.jpg"
+          src={heroContent.backgroundImage}
           alt="Core cutting work in progress"
           fill
           className="object-cover"
@@ -84,7 +78,7 @@ export function Hero() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="mb-10 flex flex-wrap gap-4"
           >
-            {highlights.map((item, index) => (
+            {heroContent.highlights.map((item, index) => (
               <div key={index} className="flex items-center gap-2 text-white/90">
                 <CheckCircle className="text-accent-400 h-5 w-5" />
                 <span className="text-sm font-medium">{item}</span>
