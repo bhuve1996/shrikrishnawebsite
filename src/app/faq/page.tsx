@@ -30,7 +30,7 @@ export default function FAQPage() {
       />
 
       {/* Hero Section */}
-      <section className="from-primary-500 via-primary-600 to-primary-700 bg-gradient-to-br pt-32 pb-20">
+      <section className="from-primary-500 via-primary-600 to-primary-700 bg-gradient-to-br pt-40 pb-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

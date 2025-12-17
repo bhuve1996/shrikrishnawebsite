@@ -38,7 +38,7 @@ export default function AboutPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="from-primary-500 via-primary-600 to-primary-700 relative overflow-hidden bg-gradient-to-br pt-32 pb-20">
+      <section className="from-primary-500 via-primary-600 to-primary-700 relative overflow-hidden bg-gradient-to-br pt-40 pb-20">
         {/* Background image */}
         <div className="absolute inset-0 opacity-20">
           <Image src="/images/gallery/photo_9.jpg" alt="Our work" fill className="object-cover" />

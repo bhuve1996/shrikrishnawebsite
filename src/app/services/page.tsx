@@ -44,7 +44,7 @@ export default function ServicesPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="from-primary-600 via-primary-700 to-primary-800 relative bg-gradient-to-br pt-32 pb-20">
+      <section className="from-primary-600 via-primary-700 to-primary-800 relative bg-gradient-to-br pt-40 pb-20">
         <div className="absolute inset-0 bg-[url('/images/listing-main.png')] bg-cover bg-center opacity-10" />
         <div className="relative container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
