@@ -53,7 +53,7 @@ export const businessInfo = {
   },
   plusCode: 'QJ5H+X7 Kharar, Punjab',
   googleMapsUrl:
-    'https://www.google.com/maps/place/Shri+Krishna+Core+Cutting+and+Rebaring/@30.7599727,76.6256372,17z',
+    'https://www.google.com/maps/place/Shri+Krishna+Core+Cutting+and+Rebaring/@30.7599727,76.6256372,17z/data=!3m1!4b1!4m6!3m5!1s0x390ffbe5f78bfc43:0x902e798f0cd0ff42!8m2!3d30.7599727!4d76.6282121!16s%2Fg%2F11qpxb29n4',
   googleMapsPlaceId: 'ChIJQ_yLd-X_DTkRQv_QDP54LpA',
   rating: 5.0,
   reviewCount: 70,
