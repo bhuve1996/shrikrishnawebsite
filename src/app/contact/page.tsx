@@ -37,27 +37,45 @@ export default function ContactPage() {
     },
   });
 
+  const [formData, setFormData] = useState<ContactFormData | null>(null);
+
   const onSubmit = async (data: ContactFormData) => {
     setIsSubmitting(true);
-
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-
-    // Create WhatsApp message
-    const message = `Hi, I'm ${data.name}
-Phone: ${data.phone}
-${data.email ? `Email: ${data.email}` : ''}
-Service: ${data.service}
-${data.message ? `Message: ${data.message}` : ''}`;
-
-    // Open WhatsApp with pre-filled message
-    window.open(
-      `https://wa.me/${businessInfo.whatsapp.replace('+', '')}?text=${encodeURIComponent(message)}`,
-      '_blank'
-    );
-
+    await new Promise((resolve) => setTimeout(resolve, 500));
+    setFormData(data);
     setIsSubmitting(false);
     setIsSubmitted(true);
+  };
+
+  const getWhatsAppLink = () => {
+    if (!formData) return '';
+    const message = `Hi, I'm ${formData.name}
+Phone: ${formData.phone}
+${formData.email ? `Email: ${formData.email}` : ''}
+Service: ${formData.service}
+${formData.message ? `Message: ${formData.message}` : ''}`;
+    return `https://wa.me/${businessInfo.whatsapp.replace('+', '')}?text=${encodeURIComponent(message)}`;
+  };
+
+  const getEmailLink = () => {
+    if (!formData) return '';
+    const subject = `Enquiry for ${formData.service} - ${formData.name}`;
+    const body = `Name: ${formData.name}
+Phone: ${formData.phone}
+${formData.email ? `Email: ${formData.email}` : ''}
+Service Required: ${formData.service}
+
+Message:
+${formData.message || 'No additional message'}
+
+---
+Sent from Shri Krishna Core Cutting Website`;
+    return `mailto:${businessInfo.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  };
+
+  const handleReset = () => {
+    setIsSubmitted(false);
+    setFormData(null);
     reset();
   };
 
@@ -102,17 +120,44 @@ ${data.message ? `Message: ${data.message}` : ''}`;
             <h2 className="mb-6 text-2xl font-bold text-neutral-900">Send Us a Message</h2>
 
             {isSubmitted ? (
-              <Card variant="elevated" className="py-12 text-center">
+              <Card variant="elevated" className="py-8 text-center">
                 <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-green-100">
                   <CheckCircle className="h-8 w-8 text-green-600" />
                 </div>
-                <h3 className="mb-2 text-xl font-bold text-neutral-900">Thank You!</h3>
+                <h3 className="mb-2 text-xl font-bold text-neutral-900">
+                  Choose How to Send Your Enquiry
+                </h3>
                 <p className="mb-6 text-neutral-600">
-                  Your enquiry has been submitted. We will contact you shortly.
+                  Your details are ready! Choose your preferred way to contact us:
                 </p>
-                <Button variant="primary" onClick={() => setIsSubmitted(false)}>
-                  Send Another Message
-                </Button>
+                <div className="space-y-3">
+                  <Button
+                    variant="whatsapp"
+                    size="lg"
+                    fullWidth
+                    leftIcon={<MessageCircle className="h-5 w-5" />}
+                    onClick={() => window.open(getWhatsAppLink(), '_blank')}
+                  >
+                    Send via WhatsApp (Instant Response)
+                  </Button>
+                  <Button
+                    variant="primary"
+                    size="lg"
+                    fullWidth
+                    leftIcon={<Mail className="h-5 w-5" />}
+                    onClick={() => window.open(getEmailLink(), '_self')}
+                  >
+                    Send via Email App
+                  </Button>
+                  <p className="pt-2 text-xs text-neutral-500">
+                    This will open your email or WhatsApp app with your message pre-filled
+                  </p>
+                </div>
+                <div className="mt-6 border-t border-neutral-100 pt-4">
+                  <Button variant="ghost" size="sm" onClick={handleReset}>
+                    ← Edit Message
+                  </Button>
+                </div>
               </Card>
             ) : (
               <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
