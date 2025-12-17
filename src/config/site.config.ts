@@ -35,7 +35,7 @@ export const businessInfo = {
   phone: '+917888784324',
   phoneDisplay: '078887 84324',
   whatsapp: '+917888784324',
-  email: 'contact@shrikrishnacorecutting.com',
+  email: 'skccrw@gmail.com',
   gstNumber: '', // Add GST number when available
   address: {
     street: '#169, Krishna Enclave, KHANPUR',
