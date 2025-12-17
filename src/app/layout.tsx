@@ -93,7 +93,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="font-sans antialiased bg-white text-neutral-900">
+      <body className="bg-white font-sans text-neutral-900 antialiased">
         <Header />
         <main>{children}</main>
         <Footer />

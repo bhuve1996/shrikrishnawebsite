@@ -1,16 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { 
-  Award, 
-  Clock, 
-  Shield, 
-  ThumbsUp, 
-  Wrench, 
-  BadgeCheck,
-  Users,
-  Zap
-} from 'lucide-react';
+import { Award, Clock, Shield, ThumbsUp, Wrench, BadgeCheck } from 'lucide-react';
 import { Section, SectionHeader } from '@/components/ui';
 import { businessInfo } from '@/config/site.config';
 
@@ -18,7 +9,8 @@ const features = [
   {
     icon: Award,
     title: 'Expert Technicians',
-    description: 'Highly skilled professionals with years of experience in precision cutting and drilling.',
+    description:
+      'Highly skilled professionals with years of experience in precision cutting and drilling.',
   },
   {
     icon: Clock,
@@ -63,7 +55,7 @@ export function WhyChooseUs() {
       />
 
       {/* Features Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+      <div className="mb-16 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
         {features.map((feature, index) => {
           const Icon = feature.icon;
           return (
@@ -75,16 +67,12 @@ export function WhyChooseUs() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="flex gap-4"
             >
-              <div className="w-12 h-12 bg-accent-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                <Icon className="w-6 h-6 text-accent-600" />
+              <div className="bg-accent-100 flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-lg">
+                <Icon className="text-accent-600 h-6 w-6" />
               </div>
               <div>
-                <h3 className="text-lg font-semibold text-neutral-900 mb-1">
-                  {feature.title}
-                </h3>
-                <p className="text-neutral-600 text-sm">
-                  {feature.description}
-                </p>
+                <h3 className="mb-1 text-lg font-semibold text-neutral-900">{feature.title}</h3>
+                <p className="text-sm text-neutral-600">{feature.description}</p>
               </div>
             </motion.div>
           );
@@ -97,9 +85,9 @@ export function WhyChooseUs() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
-        className="bg-gradient-to-r from-primary-500 to-primary-600 rounded-2xl p-8 md:p-12"
+        className="from-primary-500 to-primary-600 rounded-2xl bg-gradient-to-r p-8 md:p-12"
       >
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
           {stats.map((stat, index) => (
             <motion.div
               key={index}
@@ -109,12 +97,8 @@ export function WhyChooseUs() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="text-center"
             >
-              <div className="text-4xl md:text-5xl font-bold text-white mb-2">
-                {stat.value}
-              </div>
-              <div className="text-primary-100 text-sm font-medium">
-                {stat.label}
-              </div>
+              <div className="mb-2 text-4xl font-bold text-white md:text-5xl">{stat.value}</div>
+              <div className="text-primary-100 text-sm font-medium">{stat.label}</div>
             </motion.div>
           ))}
         </div>
@@ -122,4 +106,3 @@ export function WhyChooseUs() {
     </Section>
   );
 }
-

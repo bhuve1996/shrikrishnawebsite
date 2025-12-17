@@ -6,11 +6,6 @@ export const metadata: Metadata = {
   description: pageSEO.faq.description,
 };
 
-export default function FAQLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function FAQLayout({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
 }
-

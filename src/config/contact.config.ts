@@ -50,8 +50,7 @@ export const contactConfig = {
 
   successMessage: {
     title: 'Thank You!',
-    description:
-      'Your enquiry has been submitted successfully. We will contact you shortly.',
+    description: 'Your enquiry has been submitted successfully. We will contact you shortly.',
   },
 
   mapConfig: {
@@ -116,4 +115,3 @@ export const faqItems = [
       'You can get a free quote by calling us, sending a WhatsApp message, or filling out the contact form on our website. For accurate estimates, we may request photos or schedule a site visit.',
   },
 ];
-

@@ -2,14 +2,7 @@
 
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import {
-  Target,
-  Award,
-  Clock,
-  Shield,
-  Heart,
-  MapPin,
-} from 'lucide-react';
+import { Target, Award, Clock, Shield, Heart, MapPin } from 'lucide-react';
 import { Section, SectionHeader, Card, Badge } from '@/components/ui';
 import { CTABanner } from '@/components/sections';
 import { businessInfo } from '@/config/site.config';
@@ -50,17 +43,12 @@ export default function AboutPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-primary-500 via-primary-600 to-primary-700 pt-32 pb-20 overflow-hidden">
+      <section className="from-primary-500 via-primary-600 to-primary-700 relative overflow-hidden bg-gradient-to-br pt-32 pb-20">
         {/* Background image */}
         <div className="absolute inset-0 opacity-20">
-          <Image
-            src="/images/gallery/photo_9.jpg"
-            alt="Our work"
-            fill
-            className="object-cover"
-          />
+          <Image src="/images/gallery/photo_9.jpg" alt="Our work" fill className="object-cover" />
         </div>
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -69,12 +57,12 @@ export default function AboutPage() {
             <Badge variant="secondary" className="mb-4">
               About Us
             </Badge>
-            <h1 className="text-4xl sm:text-5xl font-bold text-white mb-6">
+            <h1 className="mb-6 text-4xl font-bold text-white sm:text-5xl">
               Your Trusted Partner for Core Cutting Solutions
             </h1>
             <p className="text-xl text-white/80">
-              Since 2020, we have been providing professional core cutting, rebaring, 
-              and concrete drilling services to homeowners and contractors across the Tricity region.
+              Since 2020, we have been providing professional core cutting, rebaring, and concrete
+              drilling services to homeowners and contractors across the Tricity region.
             </p>
           </motion.div>
         </div>
@@ -82,30 +70,29 @@ export default function AboutPage() {
 
       {/* Story Section */}
       <Section background="white" padding="xl">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid items-center gap-12 lg:grid-cols-2">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl font-bold text-neutral-900 mb-6">Our Story</h2>
+            <h2 className="mb-6 text-3xl font-bold text-neutral-900">Our Story</h2>
             <div className="space-y-4 text-neutral-600">
               <p>
-                Shri Krishna Core Cutting and Rebaring was founded with a simple mission: 
-                to provide reliable, professional, and affordable concrete cutting services 
-                to the people of Kharar and the surrounding Tricity area.
+                Shri Krishna Core Cutting and Rebaring was founded with a simple mission: to provide
+                reliable, professional, and affordable concrete cutting services to the people of
+                Kharar and the surrounding Tricity area.
               </p>
               <p>
-                What started as a small operation has grown into a trusted name in the 
-                construction industry. Our commitment to quality workmanship, safety, and 
-                customer satisfaction has earned us the trust of over 70 satisfied customers 
-                and a perfect 5-star rating on Google.
+                What started as a small operation has grown into a trusted name in the construction
+                industry. Our commitment to quality workmanship, safety, and customer satisfaction
+                has earned us the trust of over 70 satisfied customers and a perfect 5-star rating
+                on Google.
               </p>
               <p>
-                We take pride in our work and treat every project, big or small, with the 
-                same level of professionalism and dedication. From a simple AC hole to 
-                complex structural modifications, we bring expertise and precision to 
-                every job.
+                We take pride in our work and treat every project, big or small, with the same level
+                of professionalism and dedication. From a simple AC hole to complex structural
+                modifications, we bring expertise and precision to every job.
               </p>
             </div>
           </motion.div>
@@ -118,7 +105,7 @@ export default function AboutPage() {
           >
             {/* Work Images */}
             <div className="grid grid-cols-2 gap-4">
-              <div className="relative aspect-square rounded-xl overflow-hidden shadow-lg">
+              <div className="relative aspect-square overflow-hidden rounded-xl shadow-lg">
                 <Image
                   src="/images/gallery/photo_1.jpg"
                   alt="Core cutting work"
@@ -126,7 +113,7 @@ export default function AboutPage() {
                   className="object-cover"
                 />
               </div>
-              <div className="relative aspect-square rounded-xl overflow-hidden shadow-lg">
+              <div className="relative aspect-square overflow-hidden rounded-xl shadow-lg">
                 <Image
                   src="/images/gallery/photo_5.jpg"
                   alt="Industrial drilling"
@@ -137,9 +124,9 @@ export default function AboutPage() {
             </div>
 
             {/* Stats Card */}
-            <Card variant="elevated" className="bg-primary-500 text-white p-6">
-              <div className="flex items-center gap-4 mb-4">
-                <Award className="w-10 h-10 text-accent-400" />
+            <Card variant="elevated" className="bg-primary-500 p-6 text-white">
+              <div className="mb-4 flex items-center gap-4">
+                <Award className="text-accent-400 h-10 w-10" />
                 <div>
                   <p className="text-2xl font-bold">5.0 ★</p>
                   <p className="text-primary-100 text-sm">Google Rating</p>
@@ -170,12 +157,9 @@ export default function AboutPage() {
 
       {/* Values Section */}
       <Section background="light" padding="xl">
-        <SectionHeader
-          title="Our Values"
-          subtitle="The principles that guide everything we do"
-        />
+        <SectionHeader title="Our Values" subtitle="The principles that guide everything we do" />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
           {values.map((value, index) => {
             const Icon = value.icon;
             return (
@@ -187,13 +171,11 @@ export default function AboutPage() {
                 transition={{ delay: index * 0.1 }}
               >
                 <Card hover className="h-full text-center">
-                  <div className="w-16 h-16 bg-accent-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Icon className="w-8 h-8 text-accent-600" />
+                  <div className="bg-accent-100 mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full">
+                    <Icon className="text-accent-600 h-8 w-8" />
                   </div>
-                  <h3 className="text-lg font-bold text-neutral-900 mb-2">
-                    {value.title}
-                  </h3>
-                  <p className="text-neutral-600 text-sm">{value.description}</p>
+                  <h3 className="mb-2 text-lg font-bold text-neutral-900">{value.title}</h3>
+                  <p className="text-sm text-neutral-600">{value.description}</p>
                 </Card>
               </motion.div>
             );
@@ -207,14 +189,14 @@ export default function AboutPage() {
           title="Our Work in Action"
           subtitle="See our team delivering quality results on real projects"
         />
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
           {[1, 2, 3, 4, 6, 7, 8, 9].map((num) => (
             <motion.div
               key={num}
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              className="relative aspect-square rounded-xl overflow-hidden shadow-lg group"
+              className="group relative aspect-square overflow-hidden rounded-xl shadow-lg"
             >
               <Image
                 src={`/images/gallery/photo_${num}.jpg`}
@@ -222,7 +204,7 @@ export default function AboutPage() {
                 fill
                 className="object-cover transition-transform duration-500 group-hover:scale-110"
               />
-              <div className="absolute inset-0 bg-primary-900/0 group-hover:bg-primary-900/40 transition-colors duration-300" />
+              <div className="bg-primary-900/0 group-hover:bg-primary-900/40 absolute inset-0 transition-colors duration-300" />
             </motion.div>
           ))}
         </div>
@@ -230,12 +212,9 @@ export default function AboutPage() {
 
       {/* Timeline Section */}
       <Section background="light" padding="xl">
-        <SectionHeader
-          title="Our Journey"
-          subtitle="Key milestones in our growth story"
-        />
+        <SectionHeader title="Our Journey" subtitle="Key milestones in our growth story" />
 
-        <div className="max-w-2xl mx-auto">
+        <div className="mx-auto max-w-2xl">
           {milestones.map((milestone, index) => (
             <motion.div
               key={index}
@@ -243,14 +222,14 @@ export default function AboutPage() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="flex gap-4 mb-8 last:mb-0"
+              className="mb-8 flex gap-4 last:mb-0"
             >
               <div className="flex flex-col items-center">
-                <div className="w-12 h-12 bg-primary-500 rounded-full flex items-center justify-center text-white font-bold text-sm">
+                <div className="bg-primary-500 flex h-12 w-12 items-center justify-center rounded-full text-sm font-bold text-white">
                   {milestone.year}
                 </div>
                 {index < milestones.length - 1 && (
-                  <div className="w-0.5 h-full bg-primary-200 mt-2" />
+                  <div className="bg-primary-200 mt-2 h-full w-0.5" />
                 )}
               </div>
               <div className="pt-3">
@@ -263,10 +242,7 @@ export default function AboutPage() {
 
       {/* Service Areas */}
       <Section background="white" padding="xl">
-        <SectionHeader
-          title="Where We Work"
-          subtitle="Serving the Tricity region and beyond"
-        />
+        <SectionHeader title="Where We Work" subtitle="Serving the Tricity region and beyond" />
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -275,13 +251,8 @@ export default function AboutPage() {
           className="flex flex-wrap justify-center gap-3"
         >
           {serviceAreas.map((area) => (
-            <Badge
-              key={area}
-              variant="primary"
-              size="md"
-              className="flex items-center gap-1"
-            >
-              <MapPin className="w-3 h-3" />
+            <Badge key={area} variant="primary" size="md" className="flex items-center gap-1">
+              <MapPin className="h-3 w-3" />
               {area}
             </Badge>
           ))}

@@ -1,6 +1,5 @@
 import { MetadataRoute } from 'next';
 import { siteConfig } from '@/config/site.config';
-import { services } from '@/config/services.config';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = siteConfig.url;
@@ -47,4 +46,3 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return staticPages;
 }
-

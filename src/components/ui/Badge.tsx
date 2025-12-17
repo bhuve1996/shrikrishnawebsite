@@ -20,16 +20,11 @@ const sizeStyles = {
   md: 'px-3 py-1 text-sm',
 };
 
-export function Badge({
-  children,
-  variant = 'default',
-  size = 'md',
-  className,
-}: BadgeProps) {
+export function Badge({ children, variant = 'default', size = 'md', className }: BadgeProps) {
   return (
     <span
       className={cn(
-        'inline-flex items-center font-medium rounded-full',
+        'inline-flex items-center rounded-full font-medium',
         variantStyles[variant],
         sizeStyles[size],
         className
@@ -39,4 +34,3 @@ export function Badge({
     </span>
   );
 }
-

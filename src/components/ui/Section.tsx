@@ -74,7 +74,7 @@ export function SectionHeader({
     >
       <h2
         className={cn(
-          'text-3xl sm:text-4xl font-bold mb-4',
+          'mb-4 text-3xl font-bold sm:text-4xl',
           dark ? 'text-white' : 'text-neutral-900'
         )}
       >
@@ -83,7 +83,7 @@ export function SectionHeader({
       {subtitle && (
         <p
           className={cn(
-            'text-lg max-w-2xl',
+            'max-w-2xl text-lg',
             centered && 'mx-auto',
             dark ? 'text-white/80' : 'text-neutral-600'
           )}
@@ -94,4 +94,3 @@ export function SectionHeader({
     </motion.div>
   );
 }
-

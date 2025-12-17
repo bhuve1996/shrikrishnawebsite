@@ -206,19 +206,19 @@ Generate clean, readable, professional code.
 
 ## ✅ What this prompt gives you
 
-* Full **config-driven business website**
-* SEO-ready for **Google local search**
-* Easy to expand later (Admin, CMS, backend)
-* Perfect for **construction & contractor clients**
-* Cursor will generate **actual usable code**
+- Full **config-driven business website**
+- SEO-ready for **Google local search**
+- Easy to expand later (Admin, CMS, backend)
+- Perfect for **construction & contractor clients**
+- Cursor will generate **actual usable code**
 
 ---
 
 If you want next:
 
-* ✅ **Figma-style wireframe**
-* ✅ **Actual Tailwind color tokens**
-* ✅ **WhatsApp enquiry API**
-* ✅ **Deployment guide (Vercel / Cloudflare)**
+- ✅ **Figma-style wireframe**
+- ✅ **Actual Tailwind color tokens**
+- ✅ **WhatsApp enquiry API**
+- ✅ **Deployment guide (Vercel / Cloudflare)**
 
 Just say **“next”** 💪

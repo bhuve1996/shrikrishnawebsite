@@ -21,8 +21,7 @@ const variantStyles: Record<ButtonVariant, string> = {
     'bg-primary-500 text-white hover:bg-primary-600 active:bg-primary-700 shadow-md hover:shadow-lg',
   secondary:
     'bg-accent-500 text-white hover:bg-accent-600 active:bg-accent-700 shadow-md hover:shadow-lg',
-  outline:
-    'border-2 border-primary-500 text-primary-500 hover:bg-primary-50 active:bg-primary-100',
+  outline: 'border-2 border-primary-500 text-primary-500 hover:bg-primary-50 active:bg-primary-100',
   ghost: 'text-primary-500 hover:bg-primary-50 active:bg-primary-100',
   whatsapp:
     'bg-[#25D366] text-white hover:bg-[#20BD5A] active:bg-[#1DA851] shadow-md hover:shadow-lg',
@@ -57,7 +56,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         whileHover={{ scale: 1.02 }}
         whileTap={{ scale: 0.98 }}
         className={cn(
-          'inline-flex items-center justify-center font-semibold rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed',
+          'focus:ring-primary-500 inline-flex items-center justify-center rounded-lg font-semibold transition-all duration-200 focus:ring-2 focus:ring-offset-2 focus:outline-none disabled:cursor-not-allowed disabled:opacity-50',
           variantStyles[variant],
           sizeStyles[size],
           fullWidth && 'w-full',
@@ -68,7 +67,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       >
         {isLoading ? (
           <svg
-            className="animate-spin h-5 w-5"
+            className="h-5 w-5 animate-spin"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
@@ -100,4 +99,3 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 );
 
 Button.displayName = 'Button';
-

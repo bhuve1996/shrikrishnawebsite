@@ -13,8 +13,7 @@ export const services: Service[] = [
   {
     id: 'core-cutting',
     name: 'Core Cutting',
-    shortDescription:
-      'Precision diamond core cutting for concrete, RCC, and masonry structures.',
+    shortDescription: 'Precision diamond core cutting for concrete, RCC, and masonry structures.',
     description:
       'Our professional core cutting services use state-of-the-art diamond core drilling equipment to create precise circular openings in concrete, reinforced concrete (RCC), brick, and stone structures. We ensure clean, accurate cuts with minimal vibration and no structural damage.',
     icon: 'CircleDot',
@@ -38,8 +37,7 @@ export const services: Service[] = [
   {
     id: 'rebaring',
     name: 'Rebaring',
-    shortDescription:
-      'Expert rebar installation and reinforcement strengthening services.',
+    shortDescription: 'Expert rebar installation and reinforcement strengthening services.',
     description:
       'Our rebaring services involve drilling holes in existing concrete structures and installing steel reinforcement bars (rebar) with high-strength epoxy or grout. This technique is essential for structural strengthening, extensions, and connecting new construction to existing structures.',
     icon: 'Layers',
@@ -87,8 +85,7 @@ export const services: Service[] = [
   {
     id: 'concrete-drilling',
     name: 'Concrete Drilling',
-    shortDescription:
-      'Heavy-duty drilling for anchors, bolts, and deep penetrations.',
+    shortDescription: 'Heavy-duty drilling for anchors, bolts, and deep penetrations.',
     description:
       'Our concrete drilling services handle everything from small anchor holes to deep penetrations for industrial applications. We use professional-grade rotary hammers and diamond drill bits for efficient drilling in the toughest concrete and masonry.',
     icon: 'Target',
@@ -136,8 +133,7 @@ export const services: Service[] = [
   {
     id: 'waterproofing',
     name: 'Waterproofing',
-    shortDescription:
-      'Complete waterproofing solutions for roofs, basements, and walls.',
+    shortDescription: 'Complete waterproofing solutions for roofs, basements, and walls.',
     description:
       'We provide comprehensive waterproofing services to protect your property from water damage. Our solutions include terrace waterproofing, basement waterproofing, bathroom waterproofing, and external wall treatments using premium materials.',
     icon: 'Droplets',
@@ -174,4 +170,3 @@ export const serviceAreas = [
   'New Chandigarh',
   'Rajpura',
 ];
-

@@ -5,18 +5,9 @@ import { motion } from 'framer-motion';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
-import {
-  Phone,
-  Mail,
-  MapPin,
-  Clock,
-  MessageCircle,
-  Send,
-  CheckCircle,
-} from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, MessageCircle, Send, CheckCircle } from 'lucide-react';
 import { Section, Button, Badge, Card, Input, Textarea, Select } from '@/components/ui';
 import { businessInfo, socialLinks } from '@/config/site.config';
-import { contactConfig } from '@/config/contact.config';
 
 const contactSchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters'),
@@ -37,7 +28,6 @@ export default function ContactPage() {
     handleSubmit,
     formState: { errors },
     reset,
-    watch,
   } = useForm<ContactFormData>({
     resolver: zodResolver(contactSchema),
     defaultValues: {
@@ -45,12 +35,9 @@ export default function ContactPage() {
     },
   });
 
-  const selectedService = watch('service');
-  const formData = watch();
-
   const onSubmit = async (data: ContactFormData) => {
     setIsSubmitting(true);
-    
+
     // Simulate API call
     await new Promise((resolve) => setTimeout(resolve, 1000));
 
@@ -62,10 +49,7 @@ Service: ${data.service}
 ${data.message ? `Message: ${data.message}` : ''}`;
 
     // Open WhatsApp with pre-filled message
-    window.open(
-      `https://wa.me/917888784324?text=${encodeURIComponent(message)}`,
-      '_blank'
-    );
+    window.open(`https://wa.me/917888784324?text=${encodeURIComponent(message)}`, '_blank');
 
     setIsSubmitting(false);
     setIsSubmitted(true);
@@ -85,7 +69,7 @@ ${data.message ? `Message: ${data.message}` : ''}`;
   return (
     <>
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-primary-500 via-primary-600 to-primary-700 pt-32 pb-20">
+      <section className="from-primary-500 via-primary-600 to-primary-700 bg-gradient-to-br pt-32 pb-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -95,12 +79,9 @@ ${data.message ? `Message: ${data.message}` : ''}`;
             <Badge variant="secondary" className="mb-4">
               Contact Us
             </Badge>
-            <h1 className="text-4xl sm:text-5xl font-bold text-white mb-6">
-              Get in Touch
-            </h1>
+            <h1 className="mb-6 text-4xl font-bold text-white sm:text-5xl">Get in Touch</h1>
             <p className="text-xl text-white/80">
-              Ready to start your project? Contact us for a free quote. 
-              We respond within minutes!
+              Ready to start your project? Contact us for a free quote. We respond within minutes!
             </p>
           </motion.div>
         </div>
@@ -108,32 +89,25 @@ ${data.message ? `Message: ${data.message}` : ''}`;
 
       {/* Contact Section */}
       <Section background="white" padding="xl">
-        <div className="grid lg:grid-cols-2 gap-12">
+        <div className="grid gap-12 lg:grid-cols-2">
           {/* Contact Form */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-2xl font-bold text-neutral-900 mb-6">
-              Send Us a Message
-            </h2>
+            <h2 className="mb-6 text-2xl font-bold text-neutral-900">Send Us a Message</h2>
 
             {isSubmitted ? (
-              <Card variant="elevated" className="text-center py-12">
-                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <CheckCircle className="w-8 h-8 text-green-600" />
+              <Card variant="elevated" className="py-12 text-center">
+                <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-green-100">
+                  <CheckCircle className="h-8 w-8 text-green-600" />
                 </div>
-                <h3 className="text-xl font-bold text-neutral-900 mb-2">
-                  Thank You!
-                </h3>
-                <p className="text-neutral-600 mb-6">
+                <h3 className="mb-2 text-xl font-bold text-neutral-900">Thank You!</h3>
+                <p className="mb-6 text-neutral-600">
                   Your enquiry has been submitted. We will contact you shortly.
                 </p>
-                <Button
-                  variant="primary"
-                  onClick={() => setIsSubmitted(false)}
-                >
+                <Button variant="primary" onClick={() => setIsSubmitted(false)}>
                   Send Another Message
                 </Button>
               </Card>
@@ -185,7 +159,7 @@ ${data.message ? `Message: ${data.message}` : ''}`;
                   size="lg"
                   fullWidth
                   isLoading={isSubmitting}
-                  leftIcon={<Send className="w-5 h-5" />}
+                  leftIcon={<Send className="h-5 w-5" />}
                 >
                   Send Enquiry
                 </Button>
@@ -200,18 +174,13 @@ ${data.message ? `Message: ${data.message}` : ''}`;
             viewport={{ once: true }}
             className="space-y-6"
           >
-            <h2 className="text-2xl font-bold text-neutral-900 mb-6">
-              Contact Information
-            </h2>
+            <h2 className="mb-6 text-2xl font-bold text-neutral-900">Contact Information</h2>
 
             {/* Quick Contact Cards */}
             <Card variant="elevated" hover>
-              <a
-                href={socialLinks.phone}
-                className="flex items-start gap-4"
-              >
-                <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <Phone className="w-6 h-6 text-primary-500" />
+              <a href={socialLinks.phone} className="flex items-start gap-4">
+                <div className="bg-primary-100 flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-lg">
+                  <Phone className="text-primary-500 h-6 w-6" />
                 </div>
                 <div>
                   <h3 className="font-semibold text-neutral-900">Call Us</h3>
@@ -228,8 +197,8 @@ ${data.message ? `Message: ${data.message}` : ''}`;
                 rel="noopener noreferrer"
                 className="flex items-start gap-4"
               >
-                <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <MessageCircle className="w-6 h-6 text-green-600" />
+                <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-lg bg-green-100">
+                  <MessageCircle className="h-6 w-6 text-green-600" />
                 </div>
                 <div>
                   <h3 className="font-semibold text-neutral-900">WhatsApp</h3>
@@ -240,16 +209,13 @@ ${data.message ? `Message: ${data.message}` : ''}`;
             </Card>
 
             <Card variant="elevated" hover>
-              <a
-                href={`mailto:${businessInfo.email}`}
-                className="flex items-start gap-4"
-              >
-                <div className="w-12 h-12 bg-accent-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <Mail className="w-6 h-6 text-accent-600" />
+              <a href={`mailto:${businessInfo.email}`} className="flex items-start gap-4">
+                <div className="bg-accent-100 flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-lg">
+                  <Mail className="text-accent-600 h-6 w-6" />
                 </div>
                 <div>
                   <h3 className="font-semibold text-neutral-900">Email</h3>
-                  <p className="text-neutral-600 break-all">{businessInfo.email}</p>
+                  <p className="break-all text-neutral-600">{businessInfo.email}</p>
                   <p className="text-sm text-neutral-500">We reply within 24 hours</p>
                 </div>
               </a>
@@ -257,8 +223,8 @@ ${data.message ? `Message: ${data.message}` : ''}`;
 
             <Card variant="elevated">
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <MapPin className="w-6 h-6 text-primary-500" />
+                <div className="bg-primary-100 flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-lg">
+                  <MapPin className="text-primary-500 h-6 w-6" />
                 </div>
                 <div>
                   <h3 className="font-semibold text-neutral-900">Address</h3>
@@ -267,7 +233,7 @@ ${data.message ? `Message: ${data.message}` : ''}`;
                     href={businessInfo.googleMapsUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-sm text-primary-500 hover:text-primary-600"
+                    className="text-primary-500 hover:text-primary-600 text-sm"
                   >
                     View on Google Maps →
                   </a>
@@ -277,12 +243,12 @@ ${data.message ? `Message: ${data.message}` : ''}`;
 
             <Card variant="elevated">
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <Clock className="w-6 h-6 text-primary-500" />
+                <div className="bg-primary-100 flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-lg">
+                  <Clock className="text-primary-500 h-6 w-6" />
                 </div>
                 <div>
                   <h3 className="font-semibold text-neutral-900">Working Hours</h3>
-                  <div className="text-neutral-600 text-sm space-y-1">
+                  <div className="space-y-1 text-sm text-neutral-600">
                     <p>Monday - Saturday: {businessInfo.hours.weekdays}</p>
                     <p>Sunday: {businessInfo.hours.sunday}</p>
                   </div>
@@ -311,4 +277,3 @@ ${data.message ? `Message: ${data.message}` : ''}`;
     </>
   );
 }
-

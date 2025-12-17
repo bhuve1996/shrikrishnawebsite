@@ -64,11 +64,7 @@ interface CardTitleProps {
 }
 
 export function CardTitle({ className, children, as: Tag = 'h3' }: CardTitleProps) {
-  return (
-    <Tag className={cn('text-xl font-bold text-neutral-900', className)}>
-      {children}
-    </Tag>
-  );
+  return <Tag className={cn('text-xl font-bold text-neutral-900', className)}>{children}</Tag>;
 }
 
 interface CardDescriptionProps {
@@ -77,9 +73,7 @@ interface CardDescriptionProps {
 }
 
 export function CardDescription({ className, children }: CardDescriptionProps) {
-  return (
-    <p className={cn('text-neutral-600 mt-1', className)}>{children}</p>
-  );
+  return <p className={cn('mt-1 text-neutral-600', className)}>{children}</p>;
 }
 
 interface CardContentProps {
@@ -97,10 +91,5 @@ interface CardFooterProps {
 }
 
 export function CardFooter({ className, children }: CardFooterProps) {
-  return (
-    <div className={cn('mt-4 pt-4 border-t border-neutral-100', className)}>
-      {children}
-    </div>
-  );
+  return <div className={cn('mt-4 border-t border-neutral-100 pt-4', className)}>{children}</div>;
 }
-

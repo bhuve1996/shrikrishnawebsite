@@ -104,9 +104,7 @@ export const generateServiceSchema = (serviceId: string) => {
   };
 };
 
-export const generateBreadcrumbSchema = (
-  items: { name: string; url: string }[]
-) => ({
+export const generateBreadcrumbSchema = (items: { name: string; url: string }[]) => ({
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
   itemListElement: items.map((item, index) => ({
@@ -117,9 +115,7 @@ export const generateBreadcrumbSchema = (
   })),
 });
 
-export const generateFAQSchema = (
-  faqs: { question: string; answer: string }[]
-) => ({
+export const generateFAQSchema = (faqs: { question: string; answer: string }[]) => ({
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
   mainEntity: faqs.map((faq) => ({
@@ -164,4 +160,3 @@ export const pageSEO = {
       'Find answers to common questions about core cutting, rebaring, pricing, and our services in Kharar, Mohali, and the Tricity region.',
   },
 };
-

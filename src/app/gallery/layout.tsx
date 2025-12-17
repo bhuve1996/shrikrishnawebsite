@@ -6,11 +6,6 @@ export const metadata: Metadata = {
   description: pageSEO.gallery.description,
 };
 
-export default function GalleryLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function GalleryLayout({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
 }
-

@@ -14,21 +14,21 @@ export function CTABanner() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center max-w-3xl mx-auto"
+          className="mx-auto max-w-3xl text-center"
         >
-          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+          <h2 className="mb-4 text-3xl font-bold text-white sm:text-4xl">
             Ready to Start Your Project?
           </h2>
-          <p className="text-white/80 text-lg mb-8">
-            Get a free estimate for your core cutting, rebaring, or any concrete work. 
-            We respond within minutes!
+          <p className="mb-8 text-lg text-white/80">
+            Get a free estimate for your core cutting, rebaring, or any concrete work. We respond
+            within minutes!
           </p>
 
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
+          <div className="flex flex-col justify-center gap-4 sm:flex-row">
             <Button
               variant="secondary"
               size="lg"
-              leftIcon={<Phone className="w-5 h-5" />}
+              leftIcon={<Phone className="h-5 w-5" />}
               onClick={() => window.open(socialLinks.phone, '_self')}
             >
               Call: {businessInfo.phoneDisplay}
@@ -36,7 +36,7 @@ export function CTABanner() {
             <Button
               variant="whatsapp"
               size="lg"
-              leftIcon={<MessageCircle className="w-5 h-5" />}
+              leftIcon={<MessageCircle className="h-5 w-5" />}
               onClick={() => window.open(socialLinks.whatsapp, '_blank')}
             >
               WhatsApp for Quick Quote
@@ -44,12 +44,12 @@ export function CTABanner() {
           </div>
 
           <div className="mt-8">
-            <Link 
-              href="/contact" 
-              className="inline-flex items-center gap-2 text-white/70 hover:text-white transition-colors"
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-2 text-white/70 transition-colors hover:text-white"
             >
               Or fill out our contact form
-              <ArrowRight className="w-4 h-4" />
+              <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
         </motion.div>
@@ -57,4 +57,3 @@ export function CTABanner() {
     </Section>
   );
 }
-

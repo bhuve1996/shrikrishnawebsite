@@ -9,11 +9,6 @@ export const metadata: Metadata = {
   },
 };
 
-export default function ThankYouLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function ThankYouLayout({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
 }
-

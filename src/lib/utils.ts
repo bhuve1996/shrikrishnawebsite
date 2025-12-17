@@ -31,4 +31,3 @@ export function scrollToSection(sectionId: string): void {
     element.scrollIntoView({ behavior: 'smooth' });
   }
 }
-

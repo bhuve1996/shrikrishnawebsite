@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, Search, Phone, MessageCircle } from 'lucide-react';
-import { Section, Badge, Card, Button, Input } from '@/components/ui';
+import { Section, Badge, Card, Button } from '@/components/ui';
 import { CTABanner } from '@/components/sections';
 import { faqItems } from '@/config/contact.config';
 import { socialLinks, businessInfo } from '@/config/site.config';
@@ -30,7 +30,7 @@ export default function FAQPage() {
       />
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-primary-500 via-primary-600 to-primary-700 pt-32 pb-20">
+      <section className="from-primary-500 via-primary-600 to-primary-700 bg-gradient-to-br pt-32 pb-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -40,12 +40,12 @@ export default function FAQPage() {
             <Badge variant="secondary" className="mb-4">
               Help Center
             </Badge>
-            <h1 className="text-4xl sm:text-5xl font-bold text-white mb-6">
+            <h1 className="mb-6 text-4xl font-bold text-white sm:text-5xl">
               Frequently Asked Questions
             </h1>
             <p className="text-xl text-white/80">
-              Find answers to common questions about our core cutting, rebaring, 
-              and concrete services.
+              Find answers to common questions about our core cutting, rebaring, and concrete
+              services.
             </p>
           </motion.div>
         </div>
@@ -53,7 +53,7 @@ export default function FAQPage() {
 
       {/* FAQ Section */}
       <Section background="white" padding="xl">
-        <div className="max-w-3xl mx-auto">
+        <div className="mx-auto max-w-3xl">
           {/* Search */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -61,13 +61,13 @@ export default function FAQPage() {
             className="mb-8"
           >
             <div className="relative">
-              <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-neutral-400" />
+              <Search className="absolute top-1/2 left-4 h-5 w-5 -translate-y-1/2 text-neutral-400" />
               <input
                 type="text"
                 placeholder="Search questions..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-12 pr-4 py-4 border border-neutral-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                className="focus:ring-primary-500 w-full rounded-xl border border-neutral-200 py-4 pr-4 pl-12 focus:border-transparent focus:ring-2 focus:outline-none"
               />
             </div>
           </motion.div>
@@ -81,25 +81,17 @@ export default function FAQPage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.05 }}
               >
-                <Card
-                  variant="outlined"
-                  padding="none"
-                  className="overflow-hidden"
-                >
+                <Card variant="outlined" padding="none" className="overflow-hidden">
                   <button
-                    className="w-full px-6 py-5 flex items-center justify-between text-left hover:bg-neutral-50 transition-colors"
-                    onClick={() =>
-                      setOpenIndex(openIndex === index ? null : index)
-                    }
+                    className="flex w-full items-center justify-between px-6 py-5 text-left transition-colors hover:bg-neutral-50"
+                    onClick={() => setOpenIndex(openIndex === index ? null : index)}
                   >
-                    <span className="font-semibold text-neutral-900 pr-4">
-                      {faq.question}
-                    </span>
+                    <span className="pr-4 font-semibold text-neutral-900">{faq.question}</span>
                     <motion.div
                       animate={{ rotate: openIndex === index ? 180 : 0 }}
                       transition={{ duration: 0.2 }}
                     >
-                      <ChevronDown className="w-5 h-5 text-neutral-500 flex-shrink-0" />
+                      <ChevronDown className="h-5 w-5 flex-shrink-0 text-neutral-500" />
                     </motion.div>
                   </button>
                   <AnimatePresence>
@@ -110,9 +102,7 @@ export default function FAQPage() {
                         exit={{ height: 0, opacity: 0 }}
                         transition={{ duration: 0.2 }}
                       >
-                        <div className="px-6 pb-5 text-neutral-600">
-                          {faq.answer}
-                        </div>
+                        <div className="px-6 pb-5 text-neutral-600">{faq.answer}</div>
                       </motion.div>
                     )}
                   </AnimatePresence>
@@ -123,10 +113,8 @@ export default function FAQPage() {
 
           {/* Empty state */}
           {filteredFaqs.length === 0 && (
-            <div className="text-center py-12">
-              <p className="text-neutral-500 mb-4">
-                No questions found matching your search.
-              </p>
+            <div className="py-12 text-center">
+              <p className="mb-4 text-neutral-500">No questions found matching your search.</p>
               <Button variant="outline" onClick={() => setSearchQuery('')}>
                 Clear Search
               </Button>
@@ -142,23 +130,21 @@ export default function FAQPage() {
           >
             <Card variant="elevated" className="bg-primary-50 border-primary-100">
               <div className="text-center">
-                <h3 className="text-xl font-bold text-neutral-900 mb-2">
-                  Still Have Questions?
-                </h3>
-                <p className="text-neutral-600 mb-6">
+                <h3 className="mb-2 text-xl font-bold text-neutral-900">Still Have Questions?</h3>
+                <p className="mb-6 text-neutral-600">
                   Can&apos;t find the answer you&apos;re looking for? Contact us directly.
                 </p>
-                <div className="flex flex-col sm:flex-row justify-center gap-4">
+                <div className="flex flex-col justify-center gap-4 sm:flex-row">
                   <Button
                     variant="primary"
-                    leftIcon={<Phone className="w-4 h-4" />}
+                    leftIcon={<Phone className="h-4 w-4" />}
                     onClick={() => window.open(socialLinks.phone, '_self')}
                   >
                     Call: {businessInfo.phoneDisplay}
                   </Button>
                   <Button
                     variant="whatsapp"
-                    leftIcon={<MessageCircle className="w-4 h-4" />}
+                    leftIcon={<MessageCircle className="h-4 w-4" />}
                     onClick={() => window.open(socialLinks.whatsapp, '_blank')}
                   >
                     WhatsApp Us
@@ -174,4 +160,3 @@ export default function FAQPage() {
     </>
   );
 }
-

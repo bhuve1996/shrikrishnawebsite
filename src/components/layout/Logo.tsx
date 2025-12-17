@@ -18,7 +18,7 @@ export function Logo({ variant = 'default', size = 'md', className }: LogoProps)
   const { width, height } = sizeStyles[size];
 
   return (
-    <Link href="/" className={cn('flex items-center group', className)}>
+    <Link href="/" className={cn('group flex items-center', className)}>
       <Image
         src="/Shree_logo.png"
         alt="Shri Krishna Core Cutting and Rebaring"

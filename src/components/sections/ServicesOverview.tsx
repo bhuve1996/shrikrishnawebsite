@@ -23,10 +23,10 @@ export function ServicesOverview() {
         subtitle="Comprehensive concrete cutting and construction solutions tailored to your needs"
       />
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
         {services.map((service, index) => {
           const Icon = iconMap[service.icon] || CircleDot;
-          
+
           return (
             <motion.div
               key={service.id}
@@ -35,22 +35,20 @@ export function ServicesOverview() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <Card hover className="h-full flex flex-col">
-                <div className="w-14 h-14 bg-primary-100 rounded-xl flex items-center justify-center mb-4">
-                  <Icon className="w-7 h-7 text-primary-500" />
+              <Card hover className="flex h-full flex-col">
+                <div className="bg-primary-100 mb-4 flex h-14 w-14 items-center justify-center rounded-xl">
+                  <Icon className="text-primary-500 h-7 w-7" />
                 </div>
-                <h3 className="text-xl font-bold text-neutral-900 mb-2">
-                  {service.name}
-                </h3>
-                <p className="text-neutral-600 text-sm mb-4 flex-grow">
+                <h3 className="mb-2 text-xl font-bold text-neutral-900">{service.name}</h3>
+                <p className="mb-4 flex-grow text-sm text-neutral-600">
                   {service.shortDescription}
                 </p>
                 <Link
                   href={`/services#${service.id}`}
-                  className="inline-flex items-center gap-2 text-primary-500 font-medium text-sm hover:text-primary-600 transition-colors group"
+                  className="text-primary-500 hover:text-primary-600 group inline-flex items-center gap-2 text-sm font-medium transition-colors"
                 >
                   Learn more
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Link>
               </Card>
             </motion.div>
@@ -63,10 +61,10 @@ export function ServicesOverview() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5, delay: 0.6 }}
-        className="text-center mt-12"
+        className="mt-12 text-center"
       >
         <Link href="/services">
-          <Button variant="primary" size="lg" rightIcon={<ArrowRight className="w-5 h-5" />}>
+          <Button variant="primary" size="lg" rightIcon={<ArrowRight className="h-5 w-5" />}>
             View All Services
           </Button>
         </Link>
@@ -74,4 +72,3 @@ export function ServicesOverview() {
     </Section>
   );
 }
-

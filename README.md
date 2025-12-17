@@ -44,23 +44,26 @@ src/
 
 ### Prerequisites
 
-- Node.js 18+ 
+- Node.js 18+
 - npm or yarn
 
 ### Installation
 
 1. Clone the repository:
+
 ```bash
 git clone <repository-url>
 cd shrikrishnawebsite
 ```
 
 2. Install dependencies:
+
 ```bash
 npm install
 ```
 
 3. Start the development server:
+
 ```bash
 npm run dev
 ```
@@ -72,7 +75,9 @@ npm run dev
 All website content is config-driven. To update content, edit the files in `src/config/`:
 
 ### Business Information
+
 Edit `src/config/site.config.ts`:
+
 - Company name, tagline
 - Phone number, email, address
 - Coordinates for Google Maps
@@ -80,22 +85,30 @@ Edit `src/config/site.config.ts`:
 - Social links
 
 ### Services
+
 Edit `src/config/services.config.ts`:
+
 - Add/modify services
 - Update descriptions, use cases, benefits
 - Modify service areas
 
 ### Testimonials
+
 Edit `src/config/testimonials.config.ts`:
+
 - Add customer reviews
 - Update ratings and dates
 
 ### FAQ
+
 Edit `src/config/contact.config.ts`:
+
 - Add/modify FAQ questions and answers
 
 ### SEO
+
 Edit `src/config/seo.config.ts`:
+
 - Page titles and descriptions
 - JSON-LD structured data
 - Keywords
@@ -103,6 +116,7 @@ Edit `src/config/seo.config.ts`:
 ## 🎨 Customization
 
 ### Colors
+
 The theme uses a deep navy blue primary color and warm orange accent. Modify in `src/app/globals.css`:
 
 ```css
@@ -113,7 +127,9 @@ The theme uses a deep navy blue primary color and warm orange accent. Modify in 
 ```
 
 ### Fonts
+
 Fonts are configured in `src/app/layout.tsx`. Currently using:
+
 - **Headings**: Outfit
 - **Body**: DM Sans
 
@@ -140,6 +156,7 @@ Fonts are configured in `src/app/layout.tsx`. Currently using:
 ### Other Platforms
 
 Build the production version:
+
 ```bash
 npm run build
 ```
@@ -153,6 +170,7 @@ This project is proprietary software for Shri Krishna Core Cutting and Rebaring.
 ## 📞 Contact
 
 **Shri Krishna Core Cutting and Rebaring**
+
 - Phone: 078887 84324
 - Address: #169, Krishna Enclave, KHANPUR, Kharar, Punjab 140301
 - [Google Maps](https://www.google.com/maps/place/Shri+Krishna+Core+Cutting+and+Rebaring)

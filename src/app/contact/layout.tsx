@@ -6,11 +6,6 @@ export const metadata: Metadata = {
   description: pageSEO.contact.description,
 };
 
-export default function ContactLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function ContactLayout({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
 }
-

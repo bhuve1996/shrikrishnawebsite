@@ -74,4 +74,3 @@ export const ctaText = {
   secondary: 'Call Now',
   whatsapp: 'WhatsApp Us',
 };
-

@@ -80,4 +80,3 @@ export const reviewStats = {
   fiveStarPercentage: 98,
   platform: 'Google',
 };
-

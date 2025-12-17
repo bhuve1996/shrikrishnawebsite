@@ -6,11 +6,6 @@ export const metadata: Metadata = {
   description: pageSEO.services.description,
 };
 
-export default function ServicesLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function ServicesLayout({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
 }
-

@@ -25,16 +25,18 @@ export function Header() {
   }, []);
 
   useEffect(() => {
-    setIsOpen(false);
+    // Close mobile menu when route changes
+    if (isOpen) {
+      setIsOpen(false);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pathname]);
 
   return (
     <header
       className={cn(
-        'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
-        isScrolled
-          ? 'bg-white/95 backdrop-blur-md shadow-md py-2'
-          : 'bg-transparent py-4'
+        'fixed top-0 right-0 left-0 z-50 transition-all duration-300',
+        isScrolled ? 'bg-white/95 py-2 shadow-md backdrop-blur-md' : 'bg-transparent py-4'
       )}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -43,18 +45,18 @@ export function Header() {
           <Logo variant={isScrolled ? 'default' : 'default'} size="md" />
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-8">
+          <div className="hidden items-center gap-8 lg:flex">
             {navigation.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
                 className={cn(
-                  'text-sm font-medium transition-colors duration-200 hover:text-accent-500',
+                  'hover:text-accent-500 text-sm font-medium transition-colors duration-200',
                   pathname === item.href
                     ? 'text-accent-500'
                     : isScrolled
-                    ? 'text-neutral-700'
-                    : 'text-neutral-800'
+                      ? 'text-neutral-700'
+                      : 'text-neutral-800'
                 )}
               >
                 {item.name}
@@ -63,11 +65,11 @@ export function Header() {
           </div>
 
           {/* CTA Buttons */}
-          <div className="hidden lg:flex items-center gap-3">
+          <div className="hidden items-center gap-3 lg:flex">
             <Button
               variant="outline"
               size="sm"
-              leftIcon={<Phone className="w-4 h-4" />}
+              leftIcon={<Phone className="h-4 w-4" />}
               onClick={() => window.open(socialLinks.phone, '_self')}
             >
               {businessInfo.phoneDisplay}
@@ -75,7 +77,7 @@ export function Header() {
             <Button
               variant="whatsapp"
               size="sm"
-              leftIcon={<MessageCircle className="w-4 h-4" />}
+              leftIcon={<MessageCircle className="h-4 w-4" />}
               onClick={() => window.open(socialLinks.whatsapp, '_blank')}
             >
               WhatsApp
@@ -84,14 +86,14 @@ export function Header() {
 
           {/* Mobile Menu Button */}
           <button
-            className="lg:hidden p-2 rounded-lg hover:bg-neutral-100 transition-colors"
+            className="rounded-lg p-2 transition-colors hover:bg-neutral-100 lg:hidden"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
           >
             {isOpen ? (
-              <X className="w-6 h-6 text-neutral-700" />
+              <X className="h-6 w-6 text-neutral-700" />
             ) : (
-              <Menu className="w-6 h-6 text-neutral-700" />
+              <Menu className="h-6 w-6 text-neutral-700" />
             )}
           </button>
         </nav>
@@ -104,15 +106,15 @@ export function Header() {
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3 }}
-              className="lg:hidden overflow-hidden"
+              className="overflow-hidden lg:hidden"
             >
-              <div className="py-4 space-y-2">
+              <div className="space-y-2 py-4">
                 {navigation.map((item) => (
                   <Link
                     key={item.name}
                     href={item.href}
                     className={cn(
-                      'block py-3 px-4 rounded-lg text-base font-medium transition-colors',
+                      'block rounded-lg px-4 py-3 text-base font-medium transition-colors',
                       pathname === item.href
                         ? 'bg-primary-50 text-primary-500'
                         : 'text-neutral-700 hover:bg-neutral-50'
@@ -121,11 +123,11 @@ export function Header() {
                     {item.name}
                   </Link>
                 ))}
-                <div className="pt-4 space-y-3">
+                <div className="space-y-3 pt-4">
                   <Button
                     variant="outline"
                     fullWidth
-                    leftIcon={<Phone className="w-4 h-4" />}
+                    leftIcon={<Phone className="h-4 w-4" />}
                     onClick={() => window.open(socialLinks.phone, '_self')}
                   >
                     Call {businessInfo.phoneDisplay}
@@ -133,7 +135,7 @@ export function Header() {
                   <Button
                     variant="whatsapp"
                     fullWidth
-                    leftIcon={<MessageCircle className="w-4 h-4" />}
+                    leftIcon={<MessageCircle className="h-4 w-4" />}
                     onClick={() => window.open(socialLinks.whatsapp, '_blank')}
                   >
                     WhatsApp Us
@@ -147,4 +149,3 @@ export function Header() {
     </header>
   );
 }
-
