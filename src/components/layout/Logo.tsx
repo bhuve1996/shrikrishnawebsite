@@ -8,10 +8,11 @@ interface LogoProps {
   className?: string;
 }
 
+// Reduced height by 20% for better nav fit
 const sizeStyles = {
-  sm: { width: 120, height: 40 },
-  md: { width: 160, height: 53 },
-  lg: { width: 200, height: 67 },
+  sm: { width: 96, height: 32 },
+  md: { width: 128, height: 42 },
+  lg: { width: 160, height: 53 },
 };
 
 export function Logo({ variant = 'default', size = 'md', className }: LogoProps) {

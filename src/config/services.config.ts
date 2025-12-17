@@ -1,3 +1,11 @@
+// Services configuration based on actual invoices and quotations
+// All data derived from real executed work
+
+export interface ServiceSpecification {
+  label: string;
+  value: string;
+}
+
 export interface Service {
   id: string;
   name: string;
@@ -6,48 +14,74 @@ export interface Service {
   icon: string;
   useCases: string[];
   benefits: string[];
+  specifications?: ServiceSpecification[];
+  chemicals?: string[];
   image: string;
+  galleryImages?: string[];
 }
 
 export const services: Service[] = [
   {
-    id: 'core-cutting',
-    name: 'Core Cutting',
-    shortDescription: 'Precision diamond core cutting for concrete, RCC, and masonry structures.',
+    id: 'rcc-core-cutting',
+    name: 'RCC Core Cutting',
+    shortDescription:
+      'Precision RCC core cutting services for residential, commercial, and industrial projects.',
     description:
-      'Our professional core cutting services use state-of-the-art diamond core drilling equipment to create precise circular openings in concrete, reinforced concrete (RCC), brick, and stone structures. We ensure clean, accurate cuts with minimal vibration and no structural damage.',
+      'We provide professional RCC core cutting services using advanced diamond core drilling machinery. Our team executes clean, vibration-controlled cutting without damaging the surrounding structure. Suitable for RCC slabs, beams, columns, shear walls, and foundations.',
     icon: 'CircleDot',
+    specifications: [
+      { label: 'Diameter Range', value: '50 mm to 250 mm' },
+      { label: 'Depth Capability', value: 'Up to 300 mm and beyond' },
+      {
+        label: 'Applicable Structures',
+        value: 'RCC slabs, beams, columns, shear walls, foundations',
+      },
+    ],
     useCases: [
+      'Plumbing and drainage lines',
+      'Electrical and HVAC conduits',
+      'Fire-fighting pipelines',
+      'Industrial machinery installations',
+      'Structural modifications',
       'AC pipe and duct holes',
-      'Plumbing and drainage passages',
-      'Electrical conduit openings',
-      'Ventilation system installations',
-      'Sampling for concrete testing',
-      'Anchor bolt installations',
     ],
     benefits: [
       'Dust-free operation with wet cutting',
       'No structural damage or cracks',
-      'Precise diameter control (25mm to 500mm)',
+      'Precise diameter control',
       'Minimal noise and vibration',
       'Fast and efficient execution',
+      'Low-vibration diamond core machines',
     ],
-    image: '/images/services/core-cutting.jpg',
+    image: '/images/gallery/photo_1.jpg',
+    galleryImages: [
+      '/images/gallery/photo_1.jpg',
+      '/images/gallery/photo_2.jpg',
+      '/images/gallery/photo_3.jpg',
+    ],
   },
   {
-    id: 'rebaring',
-    name: 'Rebaring',
-    shortDescription: 'Expert rebar installation and reinforcement strengthening services.',
+    id: 'chemical-rebaring',
+    name: 'Chemical Rebaring',
+    shortDescription:
+      'Expert rebar installation and reinforcement anchoring with chemical bonding.',
     description:
-      'Our rebaring services involve drilling holes in existing concrete structures and installing steel reinforcement bars (rebar) with high-strength epoxy or grout. This technique is essential for structural strengthening, extensions, and connecting new construction to existing structures.',
+      'We specialize in chemical rebaring for structural strengthening and load-bearing extensions. Our rebaring services involve drilling holes in existing concrete structures and installing steel reinforcement bars with high-strength epoxy or grout following proper curing time and manufacturer specifications.',
     icon: 'Layers',
+    specifications: [
+      { label: '10 mm Bar', value: '100 mm depth' },
+      { label: '12 mm Bar', value: '120 mm depth' },
+      { label: '16 mm Bar', value: '160 mm depth' },
+      { label: '20 mm Bar', value: '200 mm depth' },
+    ],
+    chemicals: ['Hilti RE-10', 'Fischer FIS-360', 'Fischer EP-585 S'],
     useCases: [
-      'Structural strengthening',
-      'Building extensions and additions',
-      'Bridge and flyover repairs',
-      'Seismic retrofitting',
+      'Column extensions',
+      'Beam strengthening',
+      'Structural retrofitting',
+      'Machine base anchoring',
+      'Industrial foundations',
       'Connecting new slabs to existing structures',
-      'Foundation reinforcement',
     ],
     benefits: [
       'High-strength chemical anchoring',
@@ -55,8 +89,14 @@ export const services: Service[] = [
       'Non-destructive to existing structure',
       'Long-lasting durability',
       'Suitable for all concrete types',
+      'All installations follow manufacturer specifications',
     ],
-    image: '/images/services/rebaring.jpg',
+    image: '/images/gallery/photo_4.jpg',
+    galleryImages: [
+      '/images/gallery/photo_4.jpg',
+      '/images/gallery/photo_5.jpg',
+      '/images/gallery/photo_6.jpg',
+    ],
   },
   {
     id: 'chimney-hole-cutting',
@@ -80,7 +120,8 @@ export const services: Service[] = [
       'Quick installation ready finish',
       'Works on all wall types',
     ],
-    image: '/images/services/chimney-cutting.jpg',
+    image: '/images/gallery/photo_7.jpg',
+    galleryImages: ['/images/gallery/photo_7.jpg', '/images/gallery/photo_8.jpg'],
   },
   {
     id: 'concrete-drilling',
@@ -104,7 +145,8 @@ export const services: Service[] = [
       'Works on reinforced concrete',
       'Dust extraction systems',
     ],
-    image: '/images/services/concrete-drilling.jpg',
+    image: '/images/gallery/photo_9.jpg',
+    galleryImages: ['/images/gallery/photo_9.jpg', '/images/gallery/photo_10.jpg'],
   },
   {
     id: 'dismantling',
@@ -128,7 +170,8 @@ export const services: Service[] = [
       'Debris removal included',
       'Structural integrity preserved',
     ],
-    image: '/images/services/dismantling.jpg',
+    image: '/images/gallery/photo_11.jpg',
+    galleryImages: ['/images/gallery/photo_11.jpg'],
   },
   {
     id: 'waterproofing',
@@ -152,10 +195,12 @@ export const services: Service[] = [
       'UV resistant coatings',
       'Warranty on workmanship',
     ],
-    image: '/images/services/waterproofing.jpg',
+    image: '/images/gallery/photo_2.jpg',
+    galleryImages: ['/images/gallery/photo_2.jpg', '/images/gallery/photo_3.jpg'],
   },
 ];
 
+// Service areas from site config
 export const serviceAreas = [
   'Kharar',
   'Mohali',
@@ -169,4 +214,73 @@ export const serviceAreas = [
   'Mullanpur',
   'New Chandigarh',
   'Rajpura',
+];
+
+// Industries served - from real invoices
+export const industriesServed = [
+  'Textile Plants',
+  'Manufacturing Units',
+  'Industrial Parks',
+  'Warehouses',
+  'Commercial Buildings',
+  'Residential Complexes',
+  'Hospitals & Healthcare',
+  'Educational Institutions',
+  'Hotels & Restaurants',
+  'IT Parks',
+];
+
+// Work methodology - from real execution process
+export const workMethodology = [
+  {
+    step: 1,
+    title: 'Site Inspection',
+    description: 'Thorough site visit and assessment before execution',
+  },
+  {
+    step: 2,
+    title: 'Accurate Marking',
+    description: 'Precise marking and measurement as per requirements',
+  },
+  {
+    step: 3,
+    title: 'Equipment Setup',
+    description: 'Low-vibration diamond core machines setup',
+  },
+  {
+    step: 4,
+    title: 'Clean Execution',
+    description: 'Clean cutting with minimum dust and debris',
+  },
+  {
+    step: 5,
+    title: 'Quality Check',
+    description: 'Final inspection and quality verification',
+  },
+  {
+    step: 6,
+    title: 'Site Cleanup',
+    description: 'Complete cleanup and handover',
+  },
+];
+
+// Business compliance details
+export const businessCompliance = {
+  gstRegistered: true,
+  hsnSac: '995419',
+  billingSupport: ['Work Orders', 'Invoices', 'Quotations'],
+  taxSupport: ['CGST', 'SGST', 'IGST'],
+  paymentPlans: ['Construction Linked Payment Plan (CLPP)', 'Milestone Based', 'On Completion'],
+};
+
+// SEO keywords for services
+export const serviceKeywords = [
+  'Core cutting services in Kharar',
+  'RCC core cutting Mohali',
+  'Chemical rebaring services Punjab',
+  'Concrete cutting contractor near me',
+  'Industrial core cutting services',
+  'Chimney hole cutting Chandigarh',
+  'Waterproofing services Tricity',
+  'Dismantling work Kharar',
 ];

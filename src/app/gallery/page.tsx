@@ -6,95 +6,22 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { X, ZoomIn, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Section, Badge, Button } from '@/components/ui';
 import { CTABanner } from '@/components/sections';
+import { galleryContent } from '@/config/site.config';
+import { pageSEO } from '@/config/seo.config';
 
-// Gallery items with actual photos from Google Maps data
-const galleryItems = [
-  {
-    id: 1,
-    src: '/images/gallery/photo_1.jpg',
-    title: 'Commercial Building Core Cutting',
-    category: 'Core Cutting',
-    description: 'Precision core cutting for fire safety pipe installation in commercial building.',
-  },
-  {
-    id: 2,
-    src: '/images/gallery/photo_2.jpg',
-    title: 'Industrial Core Drilling',
-    category: 'Core Cutting',
-    description: 'Heavy-duty core drilling work at industrial facility.',
-  },
-  {
-    id: 3,
-    src: '/images/gallery/photo_3.jpg',
-    title: 'Residential AC Hole Cutting',
-    category: 'Chimney Cutting',
-    description: 'Clean AC pipe hole cutting for residential apartments.',
-  },
-  {
-    id: 4,
-    src: '/images/gallery/photo_4.jpg',
-    title: 'Structural Rebaring Work',
-    category: 'Rebaring',
-    description: 'Professional rebaring for building extension project.',
-  },
-  {
-    id: 5,
-    src: '/images/gallery/photo_5.jpg',
-    title: 'Factory Floor Core Cutting',
-    category: 'Core Cutting',
-    description: 'Core cutting in industrial factory floor with safety equipment.',
-  },
-  {
-    id: 6,
-    src: '/images/gallery/photo_6.jpg',
-    title: 'Drainage System Installation',
-    category: 'Core Cutting',
-    description: 'Large diameter core cutting for drainage and plumbing work.',
-  },
-  {
-    id: 7,
-    src: '/images/gallery/photo_7.jpg',
-    title: 'Commercial Building Work',
-    category: 'Drilling',
-    description: 'Concrete drilling for cable and pipe passages.',
-  },
-  {
-    id: 8,
-    src: '/images/gallery/photo_8.jpg',
-    title: 'MEP Core Cutting',
-    category: 'Core Cutting',
-    description: 'Core cutting for mechanical, electrical, and plumbing installations.',
-  },
-  {
-    id: 9,
-    src: '/images/gallery/photo_9.jpg',
-    title: 'Fire Safety Pipe Installation',
-    category: 'Core Cutting',
-    description: 'Core holes for fire sprinkler system pipe routing.',
-  },
-  {
-    id: 10,
-    src: '/images/gallery/photo_10.jpg',
-    title: 'Building Construction Work',
-    category: 'Dismantling',
-    description: 'Controlled dismantling and modification work.',
-  },
-  {
-    id: 11,
-    src: '/images/gallery/photo_11.jpg',
-    title: 'Multi-floor Core Cutting',
-    category: 'Core Cutting',
-    description: 'Precision core cutting across multiple floors for utilities.',
-  },
-];
+// Gallery items derived from config
+const galleryItems = galleryContent.images.map((img, index) => ({
+  id: index + 1,
+  src: img.src,
+  title: img.alt,
+  category: img.category,
+  description: `Professional ${img.category.toLowerCase()} work by Shri Krishna Core Cutting`,
+}));
 
+// Extract unique categories from config
 const categories = [
   'All',
-  'Core Cutting',
-  'Chimney Cutting',
-  'Rebaring',
-  'Dismantling',
-  'Drilling',
+  ...Array.from(new Set(galleryContent.images.map((img) => img.category))),
 ];
 
 export default function GalleryPage() {
@@ -135,11 +62,10 @@ export default function GalleryPage() {
             <Badge variant="secondary" className="mb-4">
               Our Work
             </Badge>
-            <h1 className="mb-6 text-4xl font-bold text-white sm:text-5xl">Project Gallery</h1>
-            <p className="text-xl text-white/80">
-              Browse through our completed projects and see the quality of our core cutting,
-              rebaring, and concrete work across residential and commercial sites.
-            </p>
+            <h1 className="mb-6 text-4xl font-bold text-white sm:text-5xl">
+              {galleryContent.title}
+            </h1>
+            <p className="text-xl text-white/80">{galleryContent.subtitle}</p>
           </motion.div>
         </div>
       </section>

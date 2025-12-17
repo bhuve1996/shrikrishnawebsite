@@ -4,10 +4,15 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Phone, MessageCircle, Star, CheckCircle } from 'lucide-react';
 import { Button } from '@/components/ui';
-import { businessInfo, socialLinks } from '@/config/site.config';
+import { businessInfo, socialLinks, heroContent, stats, ctaText } from '@/config/site.config';
+import { serviceAreas } from '@/config/services.config';
 
 export function Hero() {
-  const highlights = ['5.0 ★ Rating', '70+ Happy Customers', 'Free Estimates'];
+  const highlights = [
+    `${businessInfo.rating} ★ Rating`,
+    `${businessInfo.reviewCount}+ Happy Customers`,
+    'Free Estimates',
+  ];
 
   return (
     <section className="relative flex min-h-screen items-center overflow-hidden">
@@ -47,9 +52,7 @@ export function Hero() {
             className="mb-6 inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 backdrop-blur-sm"
           >
             <Star className="text-accent-400 fill-accent-400 h-4 w-4" />
-            <span className="text-sm font-medium text-white/90">
-              Trusted by 70+ Customers in Tricity
-            </span>
+            <span className="text-sm font-medium text-white/90">{heroContent.badge}</span>
           </motion.div>
 
           {/* Main Heading */}
@@ -59,7 +62,8 @@ export function Hero() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="mb-6 text-4xl leading-tight font-bold text-white sm:text-5xl lg:text-6xl"
           >
-            Professional <span className="text-accent-400">Core Cutting</span> &{' '}
+            {heroContent.title.split('Core Cutting')[0]}
+            <span className="text-accent-400">Core Cutting</span> &{' '}
             <span className="text-accent-400">Rebaring</span> Services
           </motion.h1>
 
@@ -70,8 +74,7 @@ export function Hero() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="mb-8 max-w-2xl text-lg text-white/80 sm:text-xl"
           >
-            Expert concrete cutting, drilling, and reinforcement solutions for residential and
-            commercial projects in Kharar, Mohali, Chandigarh & surrounding areas.
+            {heroContent.subtitle}
           </motion.p>
 
           {/* Highlights */}
@@ -102,7 +105,7 @@ export function Hero() {
               leftIcon={<Phone className="h-5 w-5" />}
               onClick={() => window.open(socialLinks.phone, '_self')}
             >
-              Call Now: {businessInfo.phoneDisplay}
+              {ctaText.secondary}: {businessInfo.phoneDisplay}
             </Button>
             <Button
               variant="whatsapp"
@@ -110,7 +113,7 @@ export function Hero() {
               leftIcon={<MessageCircle className="h-5 w-5" />}
               onClick={() => window.open(socialLinks.whatsapp, '_blank')}
             >
-              Get Free Quote on WhatsApp
+              {ctaText.primary} on WhatsApp
             </Button>
           </motion.div>
 
@@ -121,7 +124,7 @@ export function Hero() {
             transition={{ duration: 0.6, delay: 0.6 }}
             className="mt-10 text-sm text-white/60"
           >
-            Serving: Kharar • Mohali • Chandigarh • Panchkula • Zirakpur • Dera Bassi
+            Serving: {serviceAreas.slice(0, 6).join(' • ')}
           </motion.p>
         </div>
       </div>

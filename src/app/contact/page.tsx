@@ -8,6 +8,8 @@ import { z } from 'zod';
 import { Phone, Mail, MapPin, Clock, MessageCircle, Send, CheckCircle } from 'lucide-react';
 import { Section, Button, Badge, Card, Input, Textarea, Select } from '@/components/ui';
 import { businessInfo, socialLinks } from '@/config/site.config';
+import { services } from '@/config/services.config';
+import { pageSEO } from '@/config/seo.config';
 
 const contactSchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters'),
@@ -49,20 +51,19 @@ Service: ${data.service}
 ${data.message ? `Message: ${data.message}` : ''}`;
 
     // Open WhatsApp with pre-filled message
-    window.open(`https://wa.me/917888784324?text=${encodeURIComponent(message)}`, '_blank');
+    window.open(
+      `https://wa.me/${businessInfo.whatsapp.replace('+', '')}?text=${encodeURIComponent(message)}`,
+      '_blank'
+    );
 
     setIsSubmitting(false);
     setIsSubmitted(true);
     reset();
   };
 
+  // Generate service options from config
   const serviceOptions = [
-    { value: 'core-cutting', label: 'Core Cutting' },
-    { value: 'rebaring', label: 'Rebaring' },
-    { value: 'chimney-hole-cutting', label: 'Chimney Hole Cutting' },
-    { value: 'concrete-drilling', label: 'Concrete Drilling' },
-    { value: 'dismantling', label: 'Dismantling Work' },
-    { value: 'waterproofing', label: 'Waterproofing' },
+    ...services.map((s) => ({ value: s.id, label: s.name })),
     { value: 'other', label: 'Other' },
   ];
 
@@ -79,7 +80,9 @@ ${data.message ? `Message: ${data.message}` : ''}`;
             <Badge variant="secondary" className="mb-4">
               Contact Us
             </Badge>
-            <h1 className="mb-6 text-4xl font-bold text-white sm:text-5xl">Get in Touch</h1>
+            <h1 className="mb-6 text-4xl font-bold text-white sm:text-5xl">
+              {pageSEO.contact.title.replace(' - Get Free Quote', '')}
+            </h1>
             <p className="text-xl text-white/80">
               Ready to start your project? Contact us for a free quote. We respond within minutes!
             </p>

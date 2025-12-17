@@ -5,38 +5,33 @@ import { motion } from 'framer-motion';
 import { Target, Award, Clock, Shield, Heart, MapPin } from 'lucide-react';
 import { Section, SectionHeader, Card, Badge } from '@/components/ui';
 import { CTABanner } from '@/components/sections';
-import { businessInfo } from '@/config/site.config';
+import { businessInfo, aboutContent, stats } from '@/config/site.config';
 import { serviceAreas } from '@/config/services.config';
+import { pageSEO } from '@/config/seo.config';
 
-const values = [
-  {
-    icon: Target,
-    title: 'Precision',
-    description: 'We deliver accurate, clean cuts every time using state-of-the-art equipment.',
-  },
-  {
-    icon: Shield,
-    title: 'Safety',
-    description: 'Safety is our top priority. We follow strict protocols on every project.',
-  },
-  {
-    icon: Clock,
-    title: 'Reliability',
-    description: 'We show up on time, complete work efficiently, and meet our commitments.',
-  },
-  {
-    icon: Heart,
-    title: 'Customer Focus',
-    description: 'Your satisfaction drives us. We go above and beyond to exceed expectations.',
-  },
-];
+const values = aboutContent.values.map((v, i) => ({
+  ...v,
+  icon: [Target, Shield, Clock, Heart][i] || Target,
+}));
 
 const milestones = [
-  { year: '2020', event: 'Founded Shri Krishna Core Cutting and Rebaring' },
-  { year: '2021', event: 'Expanded services to Chandigarh and Panchkula' },
-  { year: '2022', event: 'Completed 200+ projects with 5-star ratings' },
-  { year: '2023', event: 'Added waterproofing and dismantling services' },
-  { year: '2024', event: 'Serving 70+ satisfied customers across Tricity' },
+  { year: `${businessInfo.foundedYear}`, event: `Founded ${businessInfo.name}` },
+  {
+    year: `${businessInfo.foundedYear + 1}`,
+    event: 'Expanded services to Chandigarh and Panchkula',
+  },
+  {
+    year: `${businessInfo.foundedYear + 2}`,
+    event: 'Completed 200+ projects with 5-star ratings',
+  },
+  {
+    year: `${businessInfo.foundedYear + 3}`,
+    event: 'Added waterproofing and dismantling services',
+  },
+  {
+    year: `${new Date().getFullYear()}`,
+    event: `Serving ${businessInfo.reviewCount}+ satisfied customers across Tricity`,
+  },
 ];
 
 export default function AboutPage() {
@@ -57,13 +52,8 @@ export default function AboutPage() {
             <Badge variant="secondary" className="mb-4">
               About Us
             </Badge>
-            <h1 className="mb-6 text-4xl font-bold text-white sm:text-5xl">
-              Your Trusted Partner for Core Cutting Solutions
-            </h1>
-            <p className="text-xl text-white/80">
-              Since 2020, we have been providing professional core cutting, rebaring, and concrete
-              drilling services to homeowners and contractors across the Tricity region.
-            </p>
+            <h1 className="mb-6 text-4xl font-bold text-white sm:text-5xl">{aboutContent.title}</h1>
+            <p className="text-xl text-white/80">{aboutContent.subtitle}</p>
           </motion.div>
         </div>
       </section>
@@ -78,21 +68,12 @@ export default function AboutPage() {
           >
             <h2 className="mb-6 text-3xl font-bold text-neutral-900">Our Story</h2>
             <div className="space-y-4 text-neutral-600">
+              <p>{aboutContent.description}</p>
               <p>
-                Shri Krishna Core Cutting and Rebaring was founded with a simple mission: to provide
-                reliable, professional, and affordable concrete cutting services to the people of
-                Kharar and the surrounding Tricity area.
+                <strong>Mission:</strong> {aboutContent.mission}
               </p>
               <p>
-                What started as a small operation has grown into a trusted name in the construction
-                industry. Our commitment to quality workmanship, safety, and customer satisfaction
-                has earned us the trust of over 70 satisfied customers and a perfect 5-star rating
-                on Google.
-              </p>
-              <p>
-                We take pride in our work and treat every project, big or small, with the same level
-                of professionalism and dedication. From a simple AC hole to complex structural
-                modifications, we bring expertise and precision to every job.
+                <strong>Vision:</strong> {aboutContent.vision}
               </p>
             </div>
           </motion.div>
@@ -128,27 +109,17 @@ export default function AboutPage() {
               <div className="mb-4 flex items-center gap-4">
                 <Award className="text-accent-400 h-10 w-10" />
                 <div>
-                  <p className="text-2xl font-bold">5.0 ★</p>
+                  <p className="text-2xl font-bold">{businessInfo.rating} ★</p>
                   <p className="text-primary-100 text-sm">Google Rating</p>
                 </div>
               </div>
               <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <p className="text-2xl font-bold">{businessInfo.yearsInBusiness}+</p>
-                  <p className="text-primary-100 text-xs">Years Experience</p>
-                </div>
-                <div>
-                  <p className="text-2xl font-bold">{businessInfo.projectsCompleted}+</p>
-                  <p className="text-primary-100 text-xs">Projects Done</p>
-                </div>
-                <div>
-                  <p className="text-2xl font-bold">{businessInfo.reviewCount}+</p>
-                  <p className="text-primary-100 text-xs">Happy Customers</p>
-                </div>
-                <div>
-                  <p className="text-2xl font-bold">12+</p>
-                  <p className="text-primary-100 text-xs">Areas Served</p>
-                </div>
+                {stats.map((stat, index) => (
+                  <div key={index}>
+                    <p className="text-2xl font-bold">{stat.value}</p>
+                    <p className="text-primary-100 text-xs">{stat.label}</p>
+                  </div>
+                ))}
               </div>
             </Card>
           </motion.div>
