@@ -4,7 +4,6 @@ import { cn } from '@/lib/utils';
 
 interface LogoProps {
   variant?: 'default' | 'light';
-  showText?: boolean;
   size?: 'sm' | 'md' | 'lg';
   className?: string;
 }
@@ -15,7 +14,7 @@ const sizeStyles = {
   lg: { width: 200, height: 67 },
 };
 
-export function Logo({ variant = 'default', showText = true, size = 'md', className }: LogoProps) {
+export function Logo({ variant = 'default', size = 'md', className }: LogoProps) {
   const { width, height } = sizeStyles[size];
 
   return (
