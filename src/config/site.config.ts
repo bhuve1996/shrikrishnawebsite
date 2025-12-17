@@ -35,7 +35,7 @@ export const businessInfo = {
   phone: '+917888784324',
   phoneDisplay: '078887 84324',
   whatsapp: '+917888784324',
-  email: 'skccrw@gmail.com',
+  email: 'skccnrw@gmail.com',
   gstNumber: '', // Add GST number when available
   address: {
     street: '#169, Krishna Enclave, KHANPUR',
